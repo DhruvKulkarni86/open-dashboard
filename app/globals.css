@@ -21,6 +21,12 @@
 	.clip-path-polygon {
 		clip-path: polygon(0 0, 100% 0%, 85% 100%, 0% 100%);
 	}
+	.clip-path-polygon-res {
+		clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+	}
+	.clip-path-polygon-res-l {
+		clip-path: polygon(0 0, 100% 25%, 100% 100%, 0 100%);
+	}
 }
 
 body {

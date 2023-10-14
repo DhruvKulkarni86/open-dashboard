@@ -1,3 +1,4 @@
+import Signin from "@/components/forms/Signin";
 import SocialButton from "@/components/ui/SocialButton";
 
 export default function Page() {
@@ -7,7 +8,11 @@ export default function Page() {
 				<h1 className="font-bold text-4xl font-main">Sign In</h1>
 				<p className="text-sm font-comp">Sign in to your account</p>
 			</div>
-			<SocialButton />
+			<div className="flex gap-4 justify-between ">
+				<SocialButton />
+				<SocialButton />
+			</div>
+			<Signin />
 		</div>
 	);
 }
