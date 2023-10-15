@@ -21,7 +21,7 @@ export default function AuthLayout({
 					<Socials />
 				</div>
 			</div>
-			<div className="sm:w-1/2 m-10 flex items-center justify-start">
+			<div className="sm:w-1/2 m-10 flex items-center sm:justify-center justify-center">
 				{children}
 			</div>
 			<div className="clip-path-polygon-res-l py-10 justify-center bg-blue-gr flex sm:hidden">
