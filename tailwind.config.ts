@@ -17,7 +17,7 @@ const config: Config = {
 			},
 			colors: {
 				"main-w": "#FFFFFF",
-				background: "#F8FAFF",
+				backg: "#F8FAFF",
 				"button-txt": "#858585",
 				link: "#346BD4",
 				field: "#EAEAEA",
