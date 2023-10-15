@@ -53,7 +53,7 @@ export default function Sidebar() {
 						Board.
 					</h1>
 				</Link>
-				<div className="flex flex-col justify-between h-full">
+				<div className="flex flex-col justify-between  h-full">
 					<div>
 						{navData.map((item, index) => (
 							<Link key={index} href={`${item.link}`}>
