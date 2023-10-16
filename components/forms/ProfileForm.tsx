@@ -17,6 +17,9 @@ export default function ProfileForm({ onClose }: fp) {
 	const [activeTab, setActiveTab] = useState(1);
 	const { setFormValues, currentStep, setCurrentStep } = useFormStore();
 
+	console.log("ACTIVE TAB", activeTab);
+	console.log("CURRENT STEP", currentStep);
+
 	const {
 		register,
 		handleSubmit,
@@ -41,7 +44,7 @@ export default function ProfileForm({ onClose }: fp) {
 		console.log("DATA", data);
 	}
 
-	const isLastStep = currentStep === 2;
+	const isLastStep = currentStep === 3;
 	return (
 		<>
 			<div className="flex justify-between px-4 mb-4">
@@ -55,7 +58,13 @@ export default function ProfileForm({ onClose }: fp) {
 			<form
 				action=""
 				method="POST"
-				onSubmit={handleSubmit(isLastStep ? onSubmit : handleNextStep)}
+				onSubmit={handleSubmit(
+					isLastStep
+						? onSubmit
+						: currentStep === 2
+						? handlePreviousStep
+						: handleNextStep
+				)}
 			>
 				<div className={activeTab === 1 ? "block" : "hidden"}>
 					<div className=" bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0 p-5">
@@ -181,15 +190,15 @@ export default function ProfileForm({ onClose }: fp) {
 						</div>
 						<div className="flex gap-4 w-full justify-end">
 							<button
-								onClick={handlePreviousStep}
-								// onClick={() => setActiveTab(1)}
+								// onClick={handlePreviousStep}
+								onClick={() => setActiveTab(1)}
 								className="border-2 rounded-md py-2 px-6 border-slate-300 focus:outline-none font-semibold text-base"
 							>
 								Back
 							</button>
 							<button
 								type="submit"
-								// onClick={() => setActiveTab(2)}
+								onClick={() => setCurrentStep(3)}
 								className="text-white bg-blue-gr border-0 py-2 px-6 focus:outline-none font-semibold  rounded-md text-base"
 							>
 								Done

@@ -21,6 +21,7 @@ const config: Config = {
 				"button-txt": "#858585",
 				link: "#346BD4",
 				field: "#EAEAEA",
+				skeleton: "#dddddd",
 			},
 		},
 	},
