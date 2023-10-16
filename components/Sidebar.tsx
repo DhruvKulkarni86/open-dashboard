@@ -28,17 +28,17 @@ const navData: Nav[] = [
 		icon: tags,
 	},
 	{
-		link: "/Schedules",
+		link: "/dashboard",
 		name: "Schedules",
 		icon: cal,
 	},
 	{
-		link: "/users",
+		link: "/dashboard",
 		name: "Users",
 		icon: user,
 	},
 	{
-		link: "/settings",
+		link: "/dashboard",
 		name: "Settings",
 		icon: settings,
 	},
@@ -47,7 +47,7 @@ const navData: Nav[] = [
 export default function Sidebar() {
 	return (
 		<div className="w-20 z-10 sm:w-60  flex flex-col justify-between">
-			<div className=" flex flex-col sm:rounded-lg bg-blue-gr w-full h-full  items-center sm:px-10 sm:items-start">
+			<div className=" flex flex-col sm:rounded-lg bg-blue-gr w-full h-full  items-center sm:px-10  sm:items-start">
 				<Link href="/">
 					<h1 className="font-bold sm:text-3xl text-lg font-main py-10 text-main-w">
 						Board.
@@ -61,7 +61,7 @@ export default function Sidebar() {
 							</Link>
 						))}
 					</div>
-					<div className="mb-10 sm:text-base text-xs flex flex-col gap-2 text-main-w font-main">
+					<div className="mb-10 sm:text-base text-xs flex flex-col gap-2 text-main-w font-main justify-start">
 						<p>Help</p>
 						<p>Contact Us</p>
 					</div>

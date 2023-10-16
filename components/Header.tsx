@@ -1,13 +1,16 @@
+"use client";
 import { LuBell, LuUserCircle, LuSearch } from "react-icons/lu";
 import Icon from "./ui/Icon";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+	const pathname = usePathname();
 	return (
 		<div className="flex justify-between w-full items-center">
-			<h1 className="sm:text-2xl text-xl font-bold font-main">
-				Dashboard
+			<h1 className="sm:text-2xl capitalize text-xl font-bold font-main">
+				{pathname.substring(1)}
 			</h1>
-			<div className="flex  sm:w-1/4 w-1/2  justify-around items-center">
+			<div className="flex  lg:w-1/4 w-1/2  justify-around items-center">
 				<input
 					type="text"
 					id="search"

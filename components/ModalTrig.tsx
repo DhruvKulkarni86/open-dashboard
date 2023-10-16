@@ -16,6 +16,7 @@ export default function ModalTrig() {
 	useEffect(() => {
 		useFormStore.persist.rehydrate();
 	}, []);
+
 	const { formValues, initialLoad, setInitialLoad, setCurrentStep } =
 		useFormStore();
 
@@ -25,7 +26,6 @@ export default function ModalTrig() {
 		}, 1000);
 		useFormStore.persist.rehydrate();
 	}, [setInitialLoad]);
-	console.log("FV", formValues);
 	const openModal = () => {
 		setCurrentStep(1);
 		setShowModal(true);

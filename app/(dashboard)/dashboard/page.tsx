@@ -1,20 +1,24 @@
+import { BarChart } from "@/components/BarChart";
+import HeadCards from "@/components/HeadCards";
 import ModalTrig from "@/components/ModalTrig";
+import { PieChart } from "@/components/PieChart";
 import Card from "@/components/ui/Card";
 
-export default function page() {
+export default async function page() {
 	return (
 		<div>
-			<div className="flex w-full flex-wrap justify-between">
-				<Card size="small">enter</Card>
-				<Card size="small">enter</Card>
-				<Card size="small">enter</Card>
-				<Card size="small">enter</Card>
+			<HeadCards />
+			<div className="flex">
+				<Card size="large">
+					<div className="w-full sm:h-[400px] flex items-center justify-center">
+						<BarChart />
+					</div>
+				</Card>
 			</div>
-			<Card size="large">enter</Card>
-			<div className="flex gap-10">
+			<div className="flex flex-col sm:flex-row items-center sm:gap-10">
 				<Card size="medium">
 					<div className="flex w-full h-full items-center justify-center">
-						enter
+						<PieChart />
 					</div>
 				</Card>
 				<Card size="medium">
