@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
 import { ReactElement } from "react";
+import { signOut } from "next-auth/react";
 
 import {
 	LuPieChart as pie,
@@ -64,6 +66,12 @@ export default function Sidebar() {
 					<div className="mb-10 sm:text-base text-xs flex flex-col gap-2 text-main-w font-main justify-start">
 						<p>Help</p>
 						<p>Contact Us</p>
+						<p
+							className="text-bold cursor-pointer"
+							onClick={() => signOut()}
+						>
+							Log Out
+						</p>
 					</div>
 				</div>
 			</div>

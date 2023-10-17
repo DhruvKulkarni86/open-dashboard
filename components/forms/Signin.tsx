@@ -1,3 +1,6 @@
+"use client";
+import { signIn } from "next-auth/react";
+
 export default function Signin() {
 	return (
 		<div className=" bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0 p-5">
@@ -12,6 +15,7 @@ export default function Signin() {
 					type="email"
 					id="email"
 					name="email"
+					placeholder="Clicking sign in will open google auth only"
 					className="w-full bg-field rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
 				/>
 			</div>
@@ -26,11 +30,19 @@ export default function Signin() {
 					type="password"
 					id="password"
 					name="password"
+					placeholder="as preconfigured credential user doesn't exist"
 					className="w-full bg-field rounded-lg border border-gray-300 focus:border-link focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
 				/>
 			</div>
 			<p className="text-base text-link mb-4">Forgot password?</p>
-			<button className="text-white bg-blue-gr border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded-lg text-lg">
+			<button
+				onClick={() =>
+					signIn("google", {
+						callbackUrl: `${window.location.origin}/dashboard`,
+					})
+				}
+				className="text-white bg-blue-gr border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded-lg text-lg"
+			>
 				Sign In
 			</button>
 			<p className="text-xs text-gray-500 mt-3">Dont have an account?</p>

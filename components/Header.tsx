@@ -1,10 +1,12 @@
 "use client";
 import { LuBell, LuUserCircle, LuSearch } from "react-icons/lu";
-import Icon from "./ui/Icon";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 export default function Header() {
 	const pathname = usePathname();
+	const session = useSession();
 	return (
 		<div className="flex justify-between w-full items-center">
 			<h1 className="sm:text-2xl capitalize text-xl font-bold font-main">
@@ -24,8 +26,16 @@ export default function Header() {
 				<div className="cursor-pointer   rounded-lg inline-block text-2xl">
 					<LuBell />
 				</div>
-				<div className="cursor-pointer   rounded-lg inline-block text-2xl">
-					<LuUserCircle />
+				<div className="cursor-pointer rounded-lg inline-block text-2xl">
+					<Image
+						src={session.data?.user?.image!}
+						alt="profile"
+						width={20}
+						height={20}
+						className="rounded-full w-10 h-10"
+					/>
+
+					{/* <LuUserCircle /> */}
 				</div>
 			</div>
 		</div>

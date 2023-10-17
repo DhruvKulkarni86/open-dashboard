@@ -1,5 +1,8 @@
 import { Lato, Montserrat } from "next/font/google";
 import "./globals.css";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import SessionProvider from "./SessionProvider";
 
 const mont = Montserrat({
 	subsets: ["latin"],
@@ -14,17 +17,22 @@ const lato = Lato({
 	variable: "--font-lato",
 });
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
+	const session = await getServerSession(authOptions);
+	console.log("SESS", session);
 	return (
 		<html
 			lang="en"
 			className={`${mont.variable} ${lato.variable} font-sans`}
 		>
-			<body>{children}</body>
+			<SessionProvider session={session}>
+				{/* {!session ? redirect("/signin") : <body>{children}</body>} */}
+				<body>{children}</body>
+			</SessionProvider>
 		</html>
 	);
 }
